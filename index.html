@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FB3 Dubai Shop - Temu Style</title>
+<title>FB3 Dubai Shop</title>
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <style>
 *{box-sizing:border-box;font-family:Arial,sans-serif}
@@ -27,39 +27,53 @@ body{margin:0;background:#f5f5f5;padding-bottom:70px}
 .bottom div{text-align:center;font-size:11px;cursor:pointer;width:25%}
 #cartCount{background:red;color:white;border-radius:10px;padding:1px 5px;font-size:10px;position:absolute;margin-left:2px}
 .modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);display:none;z-index:50;overflow:auto}
-.modalBox{background:white;margin:15% 5%;border-radius:12px;padding:15px}
+.modalBox{background:white;margin:10% 5%;border-radius:12px;padding:15px}
 </style>
 </head>
 <body>
-<div class="top"><div class="search">🔍<input id="searchInput" placeholder="airpods" oninput="doSearch()"><span style="cursor:pointer" onclick="doSearch()">🔎</span></div></div>
+<div class="top"><div class="search">🔍<input id="searchInput" placeholder="Search laptop, iphone, sneakers..." oninput="doSearch()"><span onclick="doSearch()">🔎</span></div></div>
 <div class="cats">
 <span class="active" onclick="filterCat('All',this)">All</span>
 <span onclick="filterCat('Ships from AE',this)">Ships from AE</span>
+<span onclick="filterCat('Electronics',this)">Laptops</span>
 <span onclick="filterCat('Men',this)">Men</span>
 <span onclick="filterCat('Women',this)">Women</span>
 <span onclick="filterCat('Perfume',this)">Perfume</span>
 <span onclick="filterCat('Watches',this)">Watches</span>
-<span onclick="filterCat('Electronics',this)">Electronics</span>
 </div>
-<div class="banner2"><div><b style="color:green">✓ Free shipping</b><br>Special for you</div><div>📦 Delivery guarantee<br>Refund for any issue</div></div>
-<div class="greenBar"><span>🛡️ Why choose FB3? Dubai Authentic</span><span>Safe payments ></span></div>
+<div class="banner2"><div><b style="color:green">✓ Free shipping</b><br>Special for you</div><div>📦 Delivery guarantee</div></div>
+<div class="greenBar"><span>🛡️ FB3 Dubai Authentic • 0530946387</span><span>Safe payments ></span></div>
 <div class="grid2" id="productGrid"></div>
 <div class="bottom">
 <div onclick="showHome()"><span style="font-size:20px">🏠</span><br>Home</div>
 <div onclick="showCats()"><span style="font-size:20px">☰</span><br>Categories</div>
 <div onclick="showYou()"><span style="font-size:20px">👤</span><br>You</div>
-<div onclick="showCart()"><span style="font-size:20px">🛒<span id="cartCount">0</span></span><br>Cart<div style="font-size:8px;background:#c8f7c5;color:green;border-radius:4px">Free shipping</div></div>
+<div onclick="showCart()"><span style="font-size:20px">🛒<span id="cartCount">0</span></span><br>Cart</div>
 </div>
 <div id="productModal" class="modal" onclick="if(event.target==this)closeModal()"><div class="modalBox" id="modalContent"></div></div>
 <div id="cartModal" class="modal" onclick="if(event.target==this)closeCart()"><div class="modalBox"><h3>Cart (<span id="cartNum">0</span>)</h3><div id="cartItems"></div><hr><div><b>Total: GHS <span id="cartTotal">0</span></b></div><br><button style="width:100%;padding:14px;background:#ffcc00;border:none;border-radius:8px;font-weight:900" onclick="checkoutAll()">Pay with MoMo</button><br><br><button onclick="closeCart()" style="width:100%;padding:10px">Continue</button></div></div>
 <script>
 const PRODUCTS=[
-{id:1,name:"Stainless Steel Cuban Chain 2pcs Necklace + Bracelet",cat:"Men",price:9.16,old:26.00,img:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500",rating:"4.9 (10k+ sold)"},
-{id:2,name:"HEYXI Mint Breath Spray Portable Oral Fresh",cat:"Ships from AE",price:11.36,old:50.99,img:"https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500",rating:"4.8 (5k+ sold)"},
-{id:3,name:"Nike Air Max Sneaker Dubai Original",cat:"Men",price:1250,old:1680,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",rating:"4.8 (2.3k sold)"},
-{id:4,name:"Lattafa Asad Dubai Perfume 100ml",cat:"Perfume",price:850,old:1100,img:"https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500",rating:"4.9 (5.1k sold)"},
-{id:5,name:"Apple Watch Series 9 GPS 45mm",cat:"Watches",price:2100,old:2800,img:"https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500",rating:"5.0 (890 sold)"},
-{id:6,name:"Praying Hands Cross Tattoo Sticker Waterproof",cat:"Women",price:15,old:35,img:"https://images.unsplash.com/photo-1562962230-16e4623d36e6?w=500",rating:"4.7 (1.2k sold)"},
+{id:1,name:"HP EliteBook 840 G7 Laptop i5 16GB Dubai",cat:"Electronics",price:3200,old:4500,img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500",rating:"4.9 (10k+ sold)"},
+{id:2,name:"MacBook Air M2 256GB Dubai Original",cat:"Electronics",price:5500,old:7200,img:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500",rating:"5.0 (3k+ sold)"},
+{id:3,name:"Dell XPS 13 Laptop i7 16GB",cat:"Electronics",price:3800,old:5200,img:"https://images.unsplash.com/photo-1588872657576-7efd1f1555ed?w=500",rating:"4.8 (1.2k sold)"},
+{id:4,name:"Lenovo ThinkPad X1 Laptop Business",cat:"Electronics",price:2800,old:3600,img:"https://images.unsplash.com/photo-1588872657576-7efd1f1555ed?w=500",rating:"4.7 (890 sold)"},
+{id:5,name:"HP Laptop 15 Touchscreen i3",cat:"Electronics",price:2100,old:2900,img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500",rating:"4.8 (2k sold)"},
+{id:6,name:"iPhone 15 Pro Max 256GB Dubai",cat:"Electronics",price:6200,old:7500,img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500",rating:"5.0 (12k sold)"},
+{id:7,name:"Samsung Galaxy S24 Ultra 512GB",cat:"Electronics",price:5800,old:6800,img:"https://images.unsplash.com/photo-1610945265078-3858a3d18d4c?w=500",rating:"4.9 (9k sold)"},
+{id:8,name:"iPad Pro 11 inch M2 Dubai",cat:"Electronics",price:4200,old:5100,img:"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500",rating:"4.9 (4k sold)"},
+{id:9,name:"Wireless Earbuds Pro Max Airpods",cat:"Electronics",price:350,old:500,img:"https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=500",rating:"4.9 (8k sold)"},
+{id:10,name:"Nike Air Max Sneaker Dubai Original",cat:"Men",price:1250,old:1680,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",rating:"4.8 (2.3k sold)"},
+{id:11,name:"Lattafa Asad Dubai Perfume 100ml",cat:"Perfume",price:850,old:1100,img:"https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500",rating:"4.9 (5.1k sold)"},
+{id:12,name:"Apple Watch Series 9 GPS 45mm",cat:"Watches",price:2100,old:2800,img:"https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500",rating:"5.0 (890 sold)"},
+{id:13,name:"Stainless Steel Cuban Chain 2pcs",cat:"Men",price:180,old:300,img:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500",rating:"4.9 (10k+ sold)"},
+{id:14,name:"HEYXI Mint Breath Spray Portable",cat:"Ships from AE",price:85,old:150,img:"https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500",rating:"4.8 (5k+ sold)"},
+{id:15,name:"Adidas Running Shoes Dubai",cat:"Men",price:890,old:1200,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",rating:"4.7 (3k sold)"},
+{id:16,name:"Women Handbag Dubai Luxury",cat:"Women",price:450,old:700,img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500",rating:"4.8 (6k sold)"},
+{id:17,name:"Gold Plated Dubai Necklace Set",cat:"Women",price:220,old:400,img:"https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500",rating:"4.9 (7k sold)"},
+{id:18,name:"Tattoo Sticker Waterproof",cat:"Women",price:15,old:35,img:"https://images.unsplash.com/photo-1562962230-16e4623d36e6?w=500",rating:"4.7 (1.2k sold)"},
+{id:19,name:"Rolex Submariner Dubai Watch",cat:"Watches",price:850,old:1200,img:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500",rating:"4.9 (2k sold)"},
+{id:20,name:"Bluetooth Speaker JBL Dubai",cat:"Electronics",price:380,old:550,img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500",rating:"4.8 (4.5k sold)"},
 ];
 let CART=JSON.parse(localStorage.getItem("fb3cart")||"[]");
 let currentFilter="All";
@@ -67,53 +81,30 @@ const PAYSTACK_KEY="pk_test_ff0fc4af1d78d716172d600c82f57a135ba653bc";
 const MY_WA="233530946387";
 function render(list){
  let grid=document.getElementById("productGrid");grid.innerHTML="";
+ if(list.length==0){
+   let q=document.getElementById("searchInput").value;
+   grid.innerHTML=`<div style="grid-column:1/3;text-align:center;padding:30px;background:white;border-radius:12px"><h3>No "${q}" found</h3><p>But we can source it from Dubai in 5 days!</p><button style="padding:12px 20px;background:black;color:white;border:none;border-radius:8px" onclick="window.open('https://wa.me/'+MY_WA+'?text=I want '+q+' from Dubai - please send price','_blank')">Request ${q} on WhatsApp</button><br><br><small>Contact: 0530946387</small></div>`;
+   return;
+ }
  list.forEach(p=>{
-   grid.innerHTML+=`<div class="card2" onclick="openProduct(${p.id})"><img src="${p.img}"><div class="info2"><div style="font-size:12px;height:32px;overflow:hidden">${p.name}</div><div style="font-size:11px">⭐ ${p.rating}</div><div><span class="price2">AED ${p.price}</span><span class="old2">${p.old}</span><button class="addBtn" onclick="event.stopPropagation();addToCart(${p.id})">+</button></div></div></div>`;
+   grid.innerHTML+=`<div class="card2" onclick="openProduct(${p.id})"><img src="${p.img}"><div class="info2"><div style="font-size:12px;height:32px;overflow:hidden">${p.name}</div><div style="font-size:11px">⭐ ${p.rating}</div><div><span class="price2">GHS ${p.price}</span><span class="old2">${p.old}</span><button class="addBtn" onclick="event.stopPropagation();addToCart(${p.id})">+</button></div></div></div>`;
  });
 }
-function addToCart(id){
- let p=PRODUCTS.find(x=>x.id==id);let f=CART.find(x=>x.id==id);
- if(f)f.qty++; else CART.push({...p,qty:1});
- localStorage.setItem("fb3cart",JSON.stringify(CART));updateCartCount();
-}
-function updateCartCount(){
- document.getElementById("cartCount").innerText=CART.reduce((a,b)=>a+b.qty,0);
- document.getElementById("cartNum").innerText=CART.reduce((a,b)=>a+b.qty,0);
- let total=CART.reduce((a,b)=>a+b.price*b.qty,0);
- document.getElementById("cartTotal").innerText=total;
- let itemsDiv=document.getElementById("cartItems");itemsDiv.innerHTML="";
- CART.forEach(c=>{itemsDiv.innerHTML+=`<div style="display:flex;justify-content:space-between;margin:6px 0"><span>${c.name.substring(0,22)} x${c.qty}</span><span>AED ${c.price*c.qty} <button onclick="removeCart(${c.id})">x</button></span></div>`;});
-}
+function addToCart(id){let p=PRODUCTS.find(x=>x.id==id);let f=CART.find(x=>x.id==id);if(f)f.qty++; else CART.push({...p,qty:1});localStorage.setItem("fb3cart",JSON.stringify(CART));updateCartCount();}
+function updateCartCount(){document.getElementById("cartCount").innerText=CART.reduce((a,b)=>a+b.qty,0);document.getElementById("cartNum").innerText=CART.reduce((a,b)=>a+b.qty,0);let total=CART.reduce((a,b)=>a+b.price*b.qty,0);document.getElementById("cartTotal").innerText=total;let itemsDiv=document.getElementById("cartItems");itemsDiv.innerHTML="";CART.forEach(c=>{itemsDiv.innerHTML+=`<div style="display:flex;justify-content:space-between;margin:6px 0"><span>${c.name.substring(0,22)} x${c.qty}</span><span>GHS ${c.price*c.qty} <button onclick="removeCart(${c.id})">x</button></span></div>`;});}
 function removeCart(id){CART=CART.filter(x=>x.id!=id);localStorage.setItem("fb3cart",JSON.stringify(CART));updateCartCount();}
-function openProduct(id){
- let p=PRODUCTS.find(x=>x.id==id);
- document.getElementById("modalContent").innerHTML=`<img src="${p.img}" style="width:100%;border-radius:8px"><h3>${p.name}</h3><p>⭐ ${p.rating} • Ships from AE • Free shipping</p><p><b style="color:red;font-size:22px">AED ${p.price}</b> <span style="text-decoration:line-through;color:gray">${p.old}</span></p><p>Authentic Dubai goods. 5-7 days delivery.</p><button style="width:100%;padding:14px;background:#ffcc00;border:none;border-radius:8px;font-weight:900" onclick="addToCart(${p.id});closeModal();showCart()">Add to Cart</button><br><br><button style="width:100%;padding:14px;background:black;color:white;border:none;border-radius:8px;font-weight:900" onclick="buyNow(${p.id})">Buy Now with MoMo</button><br><br><button onclick="closeModal()" style="width:100%;padding:8px">Close</button>`;
- document.getElementById("productModal").style.display="block";
-}
+function openProduct(id){let p=PRODUCTS.find(x=>x.id==id);document.getElementById("modalContent").innerHTML=`<img src="${p.img}" style="width:100%;border-radius:8px"><h3>${p.name}</h3><p>⭐ ${p.rating} • Ships from Dubai</p><p><b style="color:red;font-size:22px">GHS ${p.price}</b> <span style="text-decoration:line-through;color:gray">${p.old}</span></p><button style="width:100%;padding:14px;background:#ffcc00;border:none;border-radius:8px;font-weight:900" onclick="addToCart(${p.id});closeModal();showCart()">Add to Cart</button><br><br><button style="width:100%;padding:14px;background:black;color:white;border:none;border-radius:8px;font-weight:900" onclick="buyNow(${p.id})">Buy Now with MoMo</button><br><br><button onclick="closeModal()" style="width:100%;padding:8px">Close</button>`;document.getElementById("productModal").style.display="block";}
 function closeModal(){document.getElementById("productModal").style.display="none";}
 function showCart(){updateCartCount();document.getElementById("cartModal").style.display="block";}
 function closeCart(){document.getElementById("cartModal").style.display="none";}
 function buyNow(id){let p=PRODUCTS.find(x=>x.id==id);pay(p.price,p.name+" x1");}
-function checkoutAll(){let total=CART.reduce((a,b)=>a+b.price*b.qty,0);if(total==0){alert("Cart empty, add items");return;}let names=CART.map(c=>c.name.substring(0,15)+" x"+c.qty).join(", ");pay(total,names);}
-function pay(amount,desc){
- let email=prompt("Enter email for receipt (or phone):");if(!email)return;
- let h=PaystackPop.setup({key:PAYSTACK_KEY,email:email.includes("@")?email:email+"@fb3.com",amount:amount*100,currency:"GHS",ref:"FB3_"+Date.now(),callback:function(res){alert("✅ Payment success! Ref: "+res.reference);let msg=`NEW PAID ORDER! Items: ${desc} Amount: GHS ${amount} Ref: ${res.reference} Customer: ${email}`;window.open("https://wa.me/"+MY_WA+"?text="+encodeURIComponent(msg),"_blank");CART=[];localStorage.removeItem("fb3cart");updateCartCount();closeCart();},onClose:function(){}});h.openIframe();
-}
-function doSearch(){
- let q=document.getElementById("searchInput").value.toLowerCase();
- let filtered=PRODUCTS.filter(p=>p.name.toLowerCase().includes(q));
- if(currentFilter!="All")filtered=filtered.filter(p=>p.cat==currentFilter);
- render(filtered);
-}
-function filterCat(cat,el){
- currentFilter=cat;
- document.querySelectorAll(".cats span").forEach(s=>s.classList.remove("active"));
- el.classList.add("active");
- doSearch();
-}
-function showHome(){window.scrollTo(0,0);}
-function showCats(){let c=prompt("Enter category: All, Men, Perfume, Watches, Electronics, Ships from AE");if(c){currentFilter=c;doSearch();}}
-function showYou(){alert("FB3 Dubai Shop\\nWhatsApp: 0530946387\\nOrders in cart: "+CART.length);}
+function checkoutAll(){let total=CART.reduce((a,b)=>a+b.price*b.qty,0);if(total==0){alert("Cart empty");return;}let names=CART.map(c=>c.name.substring(0,15)+" x"+c.qty).join(", ");pay(total,names);}
+function pay(amount,desc){let email=prompt("Enter email or phone:");if(!email)return;let h=PaystackPop.setup({key:PAYSTACK_KEY,email:email.includes("@")?email:email+"@fb3.com",amount:amount*100,currency:"GHS",ref:"FB3_"+Date.now(),callback:function(res){alert("✅ Paid! Ref: "+res.reference);let msg=`NEW PAID ORDER! Items: ${desc} Amount: GHS ${amount} Ref: ${res.reference} Customer: ${email}`;window.open("https://wa.me/"+MY_WA+"?text="+encodeURIComponent(msg),"_blank");CART=[];localStorage.removeItem("fb3cart");updateCartCount();closeCart();},onClose:function(){}});h.openIframe();}
+function doSearch(){let q=document.getElementById("searchInput").value.toLowerCase();let filtered=PRODUCTS.filter(p=>p.name.toLowerCase().includes(q));if(currentFilter!="All")filtered=filtered.filter(p=>p.cat==currentFilter);render(filtered);}
+function filterCat(cat,el){currentFilter=cat;document.querySelectorAll(".cats span").forEach(s=>s.classList.remove("active"));el.classList.add("active");doSearch();}
+function showHome(){window.scrollTo(0,0);document.getElementById("searchInput").value="";currentFilter="All";render(PRODUCTS);}
+function showCats(){let c=prompt("Enter category: All, Electronics, Men, Women, Perfume, Watches");if(c){currentFilter=c;doSearch();}}
+function showYou(){alert("FB3 Dubai Shop\\nWhatsApp: 0530946387");}
 render(PRODUCTS);updateCartCount();
 </script>
 </body>
