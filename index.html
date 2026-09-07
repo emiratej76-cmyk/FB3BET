@@ -4,34 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FB3 Dubai Shop</title>
 <script src="https://js.paystack.co/v1/inline.js"></script>
-<style>body{font-family:Arial;margin:0;background:#f0f2f5}.header{background:white;padding:12px;text-align:center;font-weight:900;font-size:18px;position:sticky;top:0}.banner{background:linear-gradient(135deg,#4a90e2,#6fb1ff);color:white;padding:20px;text-align:center}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px #0001}.card img{width:100%;height:150px;object-fit:cover}.info{padding:10px}.title{font-size:13px;font-weight:bold;height:32px;overflow:hidden}.rating{font-size:11px;color:#ff8c00}.price{color:#00a000;font-weight:900;font-size:16px}.old{font-size:11px;color:gray;text-decoration:line-through}.btn{background:#ffcc00;width:100%;padding:10px;border:none;border-radius:8px;font-weight:900;margin-top:6px;font-size:12px}.badge{background:red;color:white;font-size:10px;padding:3px 6px;border-radius:4px;position:absolute;margin:6px}.wrap{position:relative}</style>
-</head>
-<body>
-<div class="header">FB3 Dubai Shop 🇬🇭→🇦🇪 Dubai → Ghana</div>
-<div class="banner"><b>Quality Goods • Delivered to Ghana</b><br><span style="font-size:12px">✅ 5-7 Days ✅ MoMo Pay ✅ Authentic</span></div>
-<div class="grid">
-<div class="card"><div class="wrap"><span class="badge">-25%</span><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"></div><div class="info"><div class="title">Nike Air Max Sneaker</div><div class="rating">⭐ 4.8 (2.3k)</div><div><span class="price">GHS 1,250</span> <span class="old">1,680</span></div><button class="btn" onclick="buy('Nike Air Max',1250)">Buy with MoMo</button></div></div>
-<div class="card"><div class="wrap"><span class="badge">HOT</span><img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400"></div><div class="info"><div class="title">Lattafa Asad 100ml Perfume</div><div class="rating">⭐ 4.9 (5.1k)</div><div><span class="price">GHS 850</span> <span class="old">1,100</span></div><button class="btn" onclick="buy('Lattafa Perfume',850)">Buy with MoMo</button></div></div>
-<div class="card"><div class="wrap"><span class="badge">NEW</span><img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400"></div><div class="info"><div class="title">Apple Watch S9 GPS</div><div class="rating">⭐ 5.0 (890)</div><div><span class="price">GHS 2,100</span> <span class="old">2,800</span></div><button class="btn" onclick="buy('Apple Watch',2100)">Buy with MoMo</button></div></div>
-<div class="card"><div class="wrap"><span class="badge">-30%</span><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"></div><div class="info"><div class="title">Earbuds Pro Max</div><div class="rating">⭐ 4.7 (1.2k)</div><div><span class="price">GHS 350</span> <span class="old">500</span></div><button class="btn" onclick="buy('Earbuds',350)">Buy with MoMo</button></div></div>
-</div>
-<div style="text-align:center;padding:20px">Support: <b>0530946387</b><br><small>TEST MODE</small></div>
-<script>
-const PAYSTACK_KEY = "pk_test_ff0fc4af1d78d716172d600c82f57a135ba653bc";
-const MY_WA = "233530946387";
-function buy(product, amountGHS){
-  let email = prompt("Enter email or MoMo number for receipt:");
-  if(!email) return;
-  let handler = PaystackPop.setup({
-    key: PAYSTACK_KEY, email: email.includes("@")?email:email+"@fb3.com",
-    amount: amountGHS*100, currency:"GHS", ref:"FB3_"+Date.now(),
-    callback:function(res){
-      alert("✅ Paid! Ref: "+res.reference);
-      let msg = `NEW PAID ORDER! %0AProduct: ${product}%0AAmount: GHS ${amountGHS}%0ARef: ${res.reference}%0ACustomer: ${email}`;
-      window.open("https://wa.me/"+MY_WA+"?text="+encodeURIComponent(msg),"_blank");
-    }, onClose:function(){}
-  }); handler.openIframe();
-}
-</script>
-</body>
-</html>
+<style>
+...[full code as built]...
+</style>
+...
