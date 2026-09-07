@@ -1,107 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FB3BET</title>
+<title>FB3 Dubai Shop - Dubai to Ghana</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0f1419;color:#fff;padding-bottom:80px}
-.header{background:#1c2530;padding:12px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:10}
-.logo{font-weight:900;font-size:22px}.logo span{color:#ffcc00}
-.bal{background:#ffcc00;color:#000;padding:6px 12px;border-radius:20px;font-weight:800;font-size:13px}
-.match{background:#1c2530;margin:8px;border-radius:8px;border:1px solid #222}
-.mtop{padding:8px 12px;font-size:11px;color:#888;display:flex;justify-content:space-between;border-bottom:1px solid #222}
-.mteams{padding:10px;font-weight:700}
-.odds{display:flex;gap:1px;background:#222}
-.odds div{flex:1;background:#1c2530;padding:12px 0;text-align:center;cursor:pointer}
-.odds div b{color:#ffcc00;display:block}
-.odds div.sel{background:#ffcc00}.odds div.sel b{color:#000}
-#slip{position:fixed;bottom:65px;left:0;right:0;background:#fff;color:#000;display:none;z-index:9999;border-radius:12px 12px 0 0;max-height:75vh;overflow:auto}
-.sh{padding:12px;display:flex;justify-content:space-between;border-bottom:1px solid #ddd;font-weight:700}
-.stakeRow{padding:12px;display:flex;justify-content:space-between;align-items:center}
-.stakeIn{border:2px solid #ffcc00;border-radius:6px;width:100px;padding:8px;text-align:right;font-size:18px;font-weight:800}
-.quick{display:flex;gap:6px;padding:8px}
-.quick div{flex:1;background:#eee;padding:10px 0;text-align:center;border-radius:6px;font-weight:700;cursor:pointer}
-.key{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#111}
-.key div{background:#222;color:#fff;padding:14px 0;text-align:center;cursor:pointer}
-.place{display:flex;justify-content:space-between;padding:12px;background:#f5f5f5;align-items:center}
-.btnP{background:#00d26a;color:#fff;padding:10px 20px;border-radius:6px;font-weight:800;cursor:pointer}
-.bot{position:fixed;bottom:0;left:0;right:0;background:#1c2530;display:flex;height:65px;border-top:1px solid #333;z-index:1000}
-.bot div{flex:1;text-align:center;padding:8px 0;font-size:11px;color:#666;display:flex;flex-direction:column;justify-content:center}
-.bot div.on{color:#ffcc00}
-.pg{display:none}.pg.on{display:block}
-.card{background:#1c2530;margin:8px;padding:12px;border-radius:8px;border:1px solid #222}
+body{font-family:Arial;margin:0;background:#f5f7ff}
+.header{background:white;padding:15px;text-align:center;font-weight:bold;font-size:24px;color:#0a1a4d}
+.banner{background:#4a90e2;color:white;padding:25px;text-align:center}
+.card{background:white;margin:15px;border-radius:12px;padding:15px;box-shadow:0 2px 8px #0002}
+.price{color:green;font-weight:bold;font-size:20px}
+.btn{background:#ffcc33;width:100%;padding:14px;border:none;border-radius:8px;font-weight:bold;font-size:16px}
+.btn2{background:#0a1a4d;color:white}
 </style>
 </head>
 <body>
-<div class="header"><div class="logo">FB3<span>BET</span></div><div class="bal">GHS <span id="bTop">45.00</span></div></div>
-
-<div id="pgHome" class="pg on">
-<div class="match"><div class="mtop"><span>Hearts vs Kotoko</span><span>18:00</span></div><div class="mteams">Hearts of Oak vs Asante Kotoko</div><div class="odds"><div onclick="bet('Hearts vs Kotoko','Hearts',1.85,this)"><small>1</small><b>1.85</b></div><div onclick="bet('Hearts vs Kotoko','Draw',3.10,this)"><small>X</small><b>3.10</b></div><div onclick="bet('Hearts vs Kotoko','Kotoko',4.20,this)"><small>2</small><b>4.20</b></div></div></div>
-<div class="match"><div class="mtop"><span>Man City vs Arsenal</span><span>19:30</span></div><div class="mteams">Man City vs Arsenal</div><div class="odds"><div onclick="bet('City vs Arsenal','City',2.10,this)"><small>1</small><b>2.10</b></div><div onclick="bet('City vs Arsenal','Draw',3.30,this)"><small>X</small><b>3.30</b></div><div onclick="bet('City vs Arsenal','Arsenal',3.20,this)"><small>2</small><b>3.20</b></div></div></div>
-<div class="match"><div class="mtop"><span>Villarreal vs Real</span><span>21:00</span></div><div class="mteams">Villarreal vs Real Madrid</div><div class="odds"><div onclick="bet('Villarreal vs Real','Villarreal',3.50,this)"><small>1</small><b>3.50</b></div><div onclick="bet('Villarreal vs Real','Draw',3.40,this)"><small>X</small><b>3.40</b></div><div onclick="bet('Villarreal vs Real','Real',1.95,this)"><small>2</small><b>1.95</b></div></div></div>
+<div class="header">FB3 Dubai Shop 🇬🇭 → 🇦🇪 Dubai → Ghana</div>
+<div class="banner">
+<h2>Quality Goods • Delivered to Ghana</h2>
+<p>Nike • Perfumes • Watches • Shipped from Dubai</p>
+<p>✅ Fast 5-7 Days • ✅ MoMo Pay • ✅ 100% Authentic</p>
 </div>
 
-<div id="pgBets" class="pg"><div style="padding:12px;font-weight:800">My Bets</div><div id="list"></div></div>
-<div id="pgMe" class="pg"><div class="card"><div>TOTAL BALANCE</div><h2 id="bMe" style="color:#ffcc00;margin:8px 0">GHS 45.00</h2><button onclick="deposit()" style="width:100%;padding:12px;background:#ffcc00;border:0;border-radius:6px;font-weight:800;margin-bottom:8px">Deposit</button><button onclick="withdraw()" style="width:100%;padding:12px;background:#222;color:#fff;border:1px solid #333;border-radius:6px">Withdraw</button><br><br><input id="pw" type="password" placeholder="fb3admin123" style="width:100%;padding:8px;background:#111;border:1px solid #333;color:#fff"><br><br><button onclick="admin()">Admin</button><div id="adminBox" style="display:none;margin-top:10px"></div></div></div>
-
-<div id="slip">
-<div class="sh"><div id="smatch">Match</div><div onclick="closeSlip()" style="font-size:22px">✕</div></div>
-<div class="stakeRow"><div>Stake GHS<br><small id="sinfo">Team @ 0</small></div><input id="stake" class="stakeIn" type="number" value="5" oninput="calc()"></div>
-<div class="quick"><div onclick="addS(5)">+5</div><div onclick="addS(10)">+10</div><div onclick="addS(20)">+20</div><div onclick="addS(50)">+50</div></div>
-<div class="key"><div onclick="num('1')">1</div><div onclick="num('2')">2</div><div onclick="num('3')">3</div><div onclick="num('4')">4</div><div onclick="num('5')">5</div><div onclick="num('6')">6</div><div onclick="num('7')">7</div><div onclick="num('8')">8</div><div onclick="num('9')">9</div><div onclick="num('0')">0</div><div onclick="num('.')">.</div><div onclick="clr()">Clear</div></div>
-<div class="place"><div>Win<br><b id="pot">0</b></div><div class="btnP" onclick="place()">Place Bet<br><small id="pay">Pay 5</small></div></div>
+<div class="card">
+<h3>Nike Air Max Sneaker</h3>
+<p>Men's Size 40-45 • From Dubai</p>
+<div class="price">GHS 1,250</div><br>
+<button class="btn" onclick="buy('Nike Air Max - GHS 1250')">Buy with MoMo</button>
 </div>
 
-<div class="bot">
-<div id="bHome" class="on" onclick="go('Home')">🏠<br>Home</div>
-<div onclick="go('Home')">📡<br>Live</div>
-<div id="bBets" onclick="go('Bets')">🎫<br>My Bets</div>
-<div id="bMe" onclick="go('Me')">👤<br>Me</div>
+<div class="card">
+<h3>Luxury Perfume - Lattafa Asad</h3>
+<p>100ml • Long Lasting • Dubai Original</p>
+<div class="price">GHS 850</div><br>
+<button class="btn" onclick="buy('Lattafa Perfume - GHS 850')">Buy with MoMo</button>
+</div>
+
+<div class="card">
+<h3>Apple Watch Series 9</h3>
+<p>GPS 45mm • Midnight • Sealed</p>
+<div class="price">GHS 2,100</div><br>
+<button class="btn" onclick="buy('Apple Watch - GHS 2100')">Buy with MoMo</button>
+</div>
+
+<div style="padding:20px;text-align:center">
+<p>WhatsApp Support: 0530946387</p>
+<p>Pay securely via Paystack MoMo / Card</p>
 </div>
 
 <script>
-var bal=parseFloat(localStorage.getItem("fb_bal")||"45");
-var bets=JSON.parse(localStorage.getItem("fb_bets")||"[]");
-var odd=0,match="",team="";
-function go(n){
- document.getElementById("slip").style.display="none";
- document.querySelectorAll(".pg").forEach(p=>p.classList.remove("on"));
- document.getElementById("pg"+n).classList.add("on");
- document.querySelectorAll(".bot div").forEach(d=>d.classList.remove("on"));
- document.getElementById("b"+n).classList.add("on");
- if(n=="Bets")render();
+function buy(product){
+  let wa = "233530946387"; // your number
+  let msg = "Hello FB3 Dubai Shop, I want to order: " + product + ". I have paid via MoMo.";
+  // 1. Go to WhatsApp
+  window.open("https://wa.me/"+wa+"?text="+encodeURIComponent(msg), "_blank");
+  // 2. For real MoMo payment, replace this with Paystack link later:
+  // window.location = "https://paystack.com/pay/your-link";
+  alert("You will be sent to WhatsApp to confirm. After you get Paystack link, money will come direct to your MoMo!");
 }
-function bet(m,t,o,el){
- document.querySelectorAll(".odds div").forEach(d=>d.classList.remove("sel"));
- el.classList.add("sel");
- match=m;team=t;odd=o;
- document.getElementById("smatch").innerText=m+" - "+t+" @ "+o;
- document.getElementById("sinfo").innerText=t+" @ "+o;
- document.getElementById("slip").style.display="block";
- calc();
-}
-function closeSlip(){
- document.getElementById("slip").style.display="none";
- document.querySelectorAll(".odds div.sel").forEach(d=>d.classList.remove("sel"));
-}
-function num(v){var i=document.getElementById("stake");i.value=i.value+v;calc();}
-function clr(){document.getElementById("stake").value="";calc();}
-function addS(v){var i=document.getElementById("stake");i.value=(parseFloat(i.value||0)+v);calc();}
-function calc(){
- var s=parseFloat(document.getElementById("stake").value||0);
- if(isNaN(s))s=0;
- document.getElementById("pot").innerText=(s*odd).toFixed(2);
- document.getElementById("pay").innerText="Pay "+s.toFixed(2);
-}
-function deposit(){var a=prompt("Deposit GHS:","10");if(!a)return;bal+=parseFloat(a);localStorage.setItem("fb_bal",bal);up();alert("Deposited "+a);}
-function withdraw(){var a=prompt("Withdraw:");if(!a||parseFloat(a)>bal)return alert("Low");bal-=parseFloat(a);localStorage.setItem("fb_bal",bal);up();alert("Withdraw "+a);}
-function place(){var s=parseFloat(document.getElementById("stake").value||0);if(bal<s)return deposit();bal-=s;bets.push({id:Date.now(),m:match,t:team,o:odd,s:s});localStorage.setItem("fb_bets",JSON.stringify(bets));localStorage.setItem("fb_bal",bal);up();closeSlip();go("Bets");}
-function render(){var h="";if(bets.length==0)h='<div class="card" style="text-align:center;color:#666">No bets yet</div>';bets.forEach(b=>{h+='<div class="card">'+b.m+' '+b.t+' @ '+b.o+'<br>Stake '+b.s+' Win '+(b.s*b.o).toFixed(2)+'</div>';});document.getElementById("list").innerHTML=h;}
-function up(){document.getElementById("bTop").innerText=bal.toFixed(2);document.getElementById("bMe").innerText="GHS "+bal.toFixed(2);}
-function admin(){if(document.getElementById("pw").value!="fb3admin123")return alert("Wrong");document.getElementById("adminBox").style.display="block";var h="";bets.forEach((b,i)=>{h+='<div>'+b.m+' <button onclick="bal+=bets['+i+'].s*bets['+i+'].o;localStorage.setItem(\'fb_bal\',bal);bets.splice('+i+',1);localStorage.setItem(\'fb_bets\',JSON.stringify(bets));location.reload()">WIN</button> <button onclick="bets.splice('+i+',1);localStorage.setItem(\'fb_bets\',JSON.stringify(bets));location.reload()">LOSE</button></div>';});document.getElementById("adminBox").innerHTML=h;}
-up();render();
 </script>
 </body>
 </html>
